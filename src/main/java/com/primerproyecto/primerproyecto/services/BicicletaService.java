@@ -61,7 +61,6 @@ public class BicicletaService {
                 }).orElse(null);
     }
 
-    // Lógica de compra
     public String comprarBicicleta(Long id, int cantidad) {
         Optional<Bicicleta> encontrada = bicicletaRepository.findById(id);
 
@@ -70,7 +69,7 @@ public class BicicletaService {
             if (bici.getStock() >= cantidad) {
                 bici.setStock(bici.getStock() - cantidad);
                 bicicletaRepository.save(bici);
-                return "Compra realizada con éxito. Stock restante: " + bici.getStock();
+                return "Compra realizada con Ã©xito. Stock restante: " + bici.getStock();
             } else {
                 return "No hay suficiente stock disponible.";
             }
@@ -78,7 +77,6 @@ public class BicicletaService {
         return "Bicicleta no encontrada.";
     }
 
-    // Métodos de conversión
     private BicicletaDTO mapToDTO(Bicicleta bici) {
         return BicicletaDTO.builder()
                 .id(bici.getId())
