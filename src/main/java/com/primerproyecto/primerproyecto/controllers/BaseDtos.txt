@@ -22,5 +22,10 @@ CREATE TABLE usuarios (
 select * from bicicletas;
 select * from usuarios;
 
+
 INSERT INTO usuarios (username, password, rol)
 VALUES ('admin', 'admin123', 'ADMIN');
+
+UPDATE usuarios
+SET password = 'admin123'
+WHERE username = 'admin';
